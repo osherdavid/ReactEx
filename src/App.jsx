@@ -11,7 +11,7 @@ function Square({ value, onSquareClick }) {
   );
 }
 
-function Board({ xIsNext, squares, onPlay}) {
+function Board({ belongsTo, xIsNext, squares, onPlay}) {
   function handleClick(i) {
     if (!squares[i] && !calculateWinner(squares)) {
       const nextSquares = squares.slice();
@@ -30,6 +30,7 @@ function Board({ xIsNext, squares, onPlay}) {
 
   return (
     <>
+      <h1>Belongs To: {belongsTo}</h1>
       <div className='status'>{ status }</div>
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
@@ -83,10 +84,13 @@ export default function Game() {
   return (
     <div className='game'>
       <div className='game-board'>
-        <Board xIsNext={ xIsNext } squares={ currentSquares } onPlay={ handlePlay } />
+        <Board belongsTo='X' xIsNext={ xIsNext } squares={ currentSquares } onPlay={ handlePlay } />
       </div>
       <div className='game-info'>
         <ol>{ moves }</ol>
+      </div>
+      <div className='game-board'>
+        <Board belongsTo='O' xIsNext={ xIsNext } squares={ currentSquares } onPlay={ handlePlay } />
       </div>
     </div>
   );
