@@ -1,8 +1,6 @@
   
   body {
     font-family: sans-serif;
-    display: flex;
-    justify-content: space-between;
   }
   
   .square {
@@ -29,9 +27,11 @@
   .status {
     margin-bottom: 10px;
   }
+
   .game {
     display: flex;
-    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
   }
   
   .game-info {
